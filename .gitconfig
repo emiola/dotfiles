@@ -1,0 +1,23 @@
+[user]
+    name = AF
+    email = emiola@gmail.com
+[color]
+    ui = true	
+[alias]
+    graph = log --graph --oneline --decorate --all
+    lola = log --graph --decorate --pretty=format:\"%C(yellow)%h %Cred%cr %Cblue(%an)%C(white)%d%Creset %s\" --abbrev-commit --all
+	unstage = reset HEAD
+[push]
+	default = simple
+[core]
+	autocrlf = input
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[diff]
+	mnemonicprefix = true
+	renames = copies
+[credential]
+	helper = osxkeychain
+[help]
+	autocorrect = 1
