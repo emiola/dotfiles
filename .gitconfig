@@ -1,20 +1,48 @@
 [color]
+    # colour terminal command output when possible
     ui = true	
+
 [alias]
+    # fancy log
     graph = log --graph --oneline --decorate --all
+    
+    # pretty log
     lola = log --graph --decorate --pretty=format:\"%C(yellow)%h %Cred%cr %Cblue(%an)%C(white)%d%Creset %s\" --abbrev-commit --all
-	unstage = reset HEAD
+
+    # unstage alla files in the index
+    unstage = reset HEAD
+
 [push]
-	default = simple
+    # push to the set upstream branch being tracked by default
+    default = simple
+
 [core]
-	autocrlf = input
+    # set line endings auto conversion from crlf to lf on commit
+    # but not on checkout, so it works cross-platform with windows
+    autocrlf = input
+  
+    # detect tabs used for indentation (not tabs embedded in the line)
+    # compare http://stackoverflow.com/questions/5574195/make-git-highlight-tab-characters-in-a-diff
+    core.whitespace = tab-in-indent
+
+    # set attributes on files. useful for general diff improvements
+    attributesfile = ~/.gitattributes
+
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
+
 [diff]
-	mnemonicprefix = true
-	renames = copies
+    # use a mnemonic prefix instead of the standard 'a' and 'b'
+    mnemonicprefix = true
+
+    # detect renames and copies as well
+    renames = copies
+
 [credential]
-	helper = osxkeychain
+    # use osx keychain to store http passwords
+    helper = osxkeychain
+
 [help]
-	autocorrect = 1
+    autocorrect = 1
+
