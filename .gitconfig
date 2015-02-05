@@ -21,12 +21,16 @@
     # but not on checkout, so it works cross-platform with windows
     autocrlf = input
   
-    # detect tabs used for indentation (not tabs embedded in the line)
+    # detect tabs used for indentation (but not tabs embedded in the line)
     # compare http://stackoverflow.com/questions/5574195/make-git-highlight-tab-characters-in-a-diff
-    core.whitespace = tab-in-indent
+    whitespace = tab-in-indent
 
     # set attributes on files. useful for general diff improvements
     attributesfile = ~/.gitattributes
+
+[apply]
+    # cleanup whitespace (see [core]) by default when apply patches without notifying issues
+    whitespace = fix
 
 [filter "media"]
     clean = git-media-clean %f
